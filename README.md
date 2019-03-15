@@ -17,6 +17,44 @@ with Image(filename='moca-lisa.png') as img:
       i.save(filename='mona-lisa-{0}.png'.format(r))
       display(i)
 
+from wand.image import Image
+from wand.resource import limits
+
+limits['thread'] = 1
+with Image(filename='input.tif') as img:
+  pass
+  
+  
+with Image(filename='photo.jpg') as photo:
+  with open('color_profile.icc', 'rb') as profile:
+    photo.profiles['icc'] = profile.read()
+
+with Image() as canvas:
+  canvas.evaluate("substract", canvas.quantum_range * 0.07)
+
+with Image() as canvas:
+  canvas.evaluate("", canvas.quantum_range * 0.07)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
